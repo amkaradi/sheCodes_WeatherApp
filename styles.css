@@ -1,0 +1,46 @@
+html {
+  background: url(https://i.pinimg.com/originals/0d/af/b7/0dafb7928a99a9cb552a941895a6e586.jpg)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+input,
+button {
+  margin: 10px;
+}
+
+.centerCloud {
+  vertical-align: right;
+}
+
+/* body {
+            background-image: 
+            url('https://i.pinimg.com/originals/0d/af/b7/0dafb7928a99a9cb552a941895a6e586.jpg');
+        } */
+
+#frame {
+  border: white 5px solid;
+  border-radius: 0.25rem;
+  display: block;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px 50px;
+  background-color: #191919;
+}
+
+.fontColor {
+  color: white;
+}
+
+.padding {
+  padding: 10px;
+}

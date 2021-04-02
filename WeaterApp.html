@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Google Font Font CSS Style -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Install axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <title>sheCodes Weather App</title>
+
+    <style>
+        html {
+            background: url(https://i.pinimg.com/originals/0d/af/b7/0dafb7928a99a9cb552a941895a6e586.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-align: center;
+        }
+
+        input,
+        button {
+            margin: 10px;
+        }
+
+        .centerCloud {
+            vertical-align: right;
+        }
+
+        /* body {
+            background-image: 
+            url('https://i.pinimg.com/originals/0d/af/b7/0dafb7928a99a9cb552a941895a6e586.jpg');
+        } */
+
+        #frame {
+            border: white 5px solid;
+            border-radius: .25rem;
+            display: block;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 10px 50px;
+            background-color: #191919;
+        }
+
+        .fontColor {
+            color: white;
+        }
+
+        .padding {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <div class="row" class="d-flex justify-content-center" id="frame">
+        <br>
+        <h1 class="fontRoboto fontColor">Weather App</h1>
+        <!-- Search bar -->
+        <div class="d-flex justify-content-center" id="search-form">
+            <input type="text" placeholder="What city are you in?" autocomplete="off" autofocus="on">
+            <button type="button" class="btn btn-success"
+                style="background-color: #895DF1; border-color: white;">Search</button>
+            <input class="btn btn-primary" type="submit" value="Submit"
+                style="background-color: #895DF1; border-color: white;">
+        </div>
+        <hr>
+        <!-- City Title, Date and Time -->
+        <h3 class="fontRoboto fontColor">Budapest</h3>
+        <div class="row" class="center">
+            <div class="col">
+                <p class="fontRoboto center fontColor text-right">Monday</p>
+            </div>
+            <div class="col">
+                <p class="fontRoboto center fontColor">10:30</p>
+            </div>
+        </div>
+        <br>
+        <!-- Image and Weather -->
+        <div class="row" class="center">
+            <div class="col">
+                <img class="rounded float-right" src="http://openweathermap.org/img/wn/03n@2x.png">
+            </div>
+            <div class="col align-items-center">
+                <h5 class="fontColor" style="padding-top: 45px;">Cloudy</h5>
+            </div>
+        </div>
+        <hr>
+        <!-- Display: Temp, Humidity, Wind -->
+        <div class="row">
+            <div class="container">
+                <div class="row justify-content-md-center centered align-self-center">
+                    <div class="col fontColor text-center">
+                        Temperature
+                    </div>
+                    <div class="col fontColor text-center">
+                        Huminidy
+                    </div>
+                    <div class="col fontColor text-center">
+                        Wind
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- Display: F/C, %, kmh -->
+        <div class="row">
+            <div class="container">
+                <div class="row justify-content-md-center centered align-self-center padding">
+                    <div class="col fontColor text-center">
+                        11°C |°F
+                    </div>
+                    <div class="col fontColor text-center">
+                        87%
+                    </div>
+                    <div class="col fontColor text-center">
+                        3km/h
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- Weather Cards (Time, Icon, Temp) -->
+        <div class="row containter justify-content-center">
+            <!-- Mon -->
+            <div class="card col-sm-3" style="margin: 10px; width: 9rem; border: #191919; background-color: #895DF1">
+                <div class="card-body">
+                    <h5 class="card-title text-center">16:00</h5>
+                    <img class="text-center" src="http://openweathermap.org/img/wn/03n@2x.png">
+                    <p class="text-center">11°C</p>
+                </div>
+            </div>
+            <!-- Tues -->
+            <div class="card col-sm-3" style="margin: 10px; width: 9rem; border: #191919; background-color: #895DF1;">
+                <div class="card-body">
+                    <h5 class="card-title text-center">16:00</h5>
+                    <img class="text-center" src="http://openweathermap.org/img/wn/03n@2x.png">
+                    <p class="text-center">11°C</p>
+                </div>
+            </div>
+            <!-- Wed -->
+            <div class="card col-3" style="margin: 10px; width: 9rem; border: #191919; background-color: #895DF1">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-center">16:00</h5>
+                    <img class="text-center" src="http://openweathermap.org/img/wn/03n@2x.png">
+                    <p>11°C</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- JS file link -->
+    <script src="app.js"></script>
+</body>
+
+</html>
