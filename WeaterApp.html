@@ -16,7 +16,7 @@
 
     <!-- Install axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    
+
     <title>sheCodes Weather App</title>
 
     <style>
@@ -52,8 +52,8 @@
             border: white 5px solid;
             border-radius: .25rem;
             display: block;
-            max-width: 700px;
             margin: 0 auto;
+            max-width: 700px;
             padding: 10px 50px;
             background-color: #191919;
         }
@@ -75,15 +75,16 @@
         <h1 class="fontRoboto fontColor">Weather App</h1>
         <!-- Search bar -->
         <div class="d-flex justify-content-center" id="search-form">
+            <!-- Form -->
             <input type="text" placeholder="What city are you in?" autocomplete="off" autofocus="on">
-            <button type="button" class="btn btn-success"
+            <button type="button" class="btn btn-success" id="btnSearch"
                 style="background-color: #895DF1; border-color: white;">Search</button>
-            <input class="btn btn-primary" type="submit" value="Submit"
-                style="background-color: #895DF1; border-color: white;">
+            <!-- <input class="btn btn-primary" type="submit" value="Submit"
+                style="background-color: #895DF1; border-color: white;"> -->
         </div>
         <hr>
         <!-- City Title, Date and Time -->
-        <h3 class="fontRoboto fontColor">Budapest</h3>
+        <h3 class="fontRoboto fontColor" id="cityName">Budapest</h3>
         <div class="row" class="center">
             <div class="col">
                 <p class="fontRoboto center fontColor text-right">Monday</p>
@@ -110,10 +111,10 @@
                     <div class="col fontColor text-center">
                         Temperature
                     </div>
-                    <div class="col fontColor text-center">
-                        Huminidy
+                    <div class="col fontColor text-center" id="humidity">
+                        Humidity
                     </div>
-                    <div class="col fontColor text-center">
+                    <div class="col fontColor text-center" id="wind">
                         Wind
                     </div>
                 </div>
@@ -124,14 +125,14 @@
         <div class="row">
             <div class="container">
                 <div class="row justify-content-md-center centered align-self-center padding">
-                    <div class="col fontColor text-center">
-                        11°C |°F
+                    <div class="col fontColor text-center" id="tempC">
+                        <span id="tempC"></span>11°C |°F
                     </div>
                     <div class="col fontColor text-center">
-                        87%
+                        <span id="humidity">0</span>%
                     </div>
                     <div class="col fontColor text-center">
-                        3km/h
+                        <span id="wind">3</span>km/h
                     </div>
                 </div>
             </div>
@@ -168,6 +169,55 @@
     <br>
     <!-- JS file link -->
     <script src="app.js"></script>
+    <script>
+        function displayWeatherConditions(response){
+            //console.log(response.data.city);
+            //select city
+            document.querySelector("#cityName").innerHTML = response.data.city;
+            //select temperature
+            document.querySelector("#tempC").innerHTML = Math.round(response.data.main.temp);
+            //select humidity
+            document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+            //select wind
+            document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+        }
+
+        function search(event){
+            event.preventDefault();
+                    // let cityElement = document.querySelector("#city");
+                    // let cityInput = document.querySelector("#city-input");
+                    // cityElement.innerHTML = cityInput.value;
+            
+            // make an API call to OpeanWeather
+            let apiKeyOpenWeather = `b11f81209143578d36514a426f0a6f06`;
+            let city = document.querySelector("#btnSearch").value;
+            let unitsM = "metric";
+            let unitsI = "imperial";
+            let apiURLcombo = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKeyOpenWeather}&units${unitsM}`;
+            console.log(axios);
+            //get HTTP response to display city name and temp
+            //Use axios to make a GET Request 
+            //axios.get(apiURLcombo).then(displayWeatherConditions);
+            axios.get(apiURLcombo).then(console.log);
+
+        }
+
+        //Create ability to search
+            //Build click function
+            function getCurrentLocation(){
+                //console.log("clicked");
+                //grab what the user will type >>> querry selector 
+
+            }
+
+            //Step 1.
+            //Add event listener onto the seach btn 
+            let SearchingBTN = document.querySelector("#btnSearch");
+            //Add the event listener and create name for click function 
+            SearchingBTN.addEventListener("click", 
+            //list function name that needs to be triggered
+            getCurrentLocation);
+    </script>
 </body>
 
 </html>
